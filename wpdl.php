@@ -137,7 +137,7 @@ class WPDL_Listing {
      * @return void
      */
     public function includes() {
-
+        include dirname( WPDL_LISTING_FILE ) . '/vendor/autoload.php';
     }
 
     /**
@@ -148,28 +148,7 @@ class WPDL_Listing {
      * @return void
      */
     public function instantiate() {
-
-    }
-
-    /**
-     * Enqueue pluging scripts
-     *
-     * @since 0.0.1
-     *
-     * @uses wp_enqueue_script()
-     * @uses wp_localize_script()
-     * @uses wp_enqueue_style
-     *
-     * @return void
-     */
-    public function enqueue_scripts() {
-
-        wp_enqueue_style( 'wpdl-styles', plugins_url( 'assets/css/style.css', __FILE__ ), false, date( 'Ymd' ) );
-        wp_enqueue_script( 'wpdl-scripts', plugins_url( 'assets/js/script.js', __FILE__ ), array( 'jquery' ), false, true );
-
-        // $translation_array = array( 'some_string' => __( 'Some string to translate', 'wpdl' ), 'a_value' => '10' );
-        // wp_localize_script( 'base-plugin-scripts', 'wpdl', $translation_array ) );
-
+        \WebApps\WPDL\Scripts::init();
     }
 
 } // WPDL_Listing
@@ -177,5 +156,5 @@ class WPDL_Listing {
 add_action( 'plugins_loaded', 'wpdl_plugin_loaded', 90 );
 
 function wpdl_plugin_loaded() {
-    $wpdl = WPDL_Listing::init();
+    $wpdl = \WPDL_Listing::init();
 }

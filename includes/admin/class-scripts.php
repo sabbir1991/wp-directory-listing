@@ -36,6 +36,26 @@ class Scripts {
     }
 
     /**
+     * Initializes the Scripts() class
+     *
+     *
+     *
+     * Checks for an existing Scripts() instance
+     * and if it doesn't find one, creates it.
+     *
+     * @return $instance [plugin main instance]
+     */
+    public static function init() {
+        static $instance = false;
+
+        if ( ! $instance ) {
+            $instance = new \WebApps\WPDL\Scripts();
+        }
+
+        return $instance;
+    }
+
+    /**
      * Hangle all scripts
      *
      * @since  0.0.1
@@ -69,7 +89,10 @@ class Scripts {
     * @return void
     **/
     public function register_scripts() {
+        $vendor = WPDL_LISTING_ASSETS . '/vendor';
+        $js     = WPDL_LISTING_ASSETS . '/js';
 
+        wp_register_script( 'wpdl-admin-script', $js . '/wpdl-admin' . $this->suffix . '.js', array( 'jquery', 'underscore', 'wp-util' ), $this->version, true );
     }
 
     /**
@@ -80,7 +103,10 @@ class Scripts {
     * @return void
     **/
     public function register_styles() {
+        $vendor = WPDL_LISTING_ASSETS . '/vendor';
+        $css    = WPDL_LISTING_ASSETS . '/css';
 
+        wp_register_style( 'wpdl-admin-styles', $css . '/admin.css', false, $this->version );
     }
 
     /**
@@ -91,7 +117,10 @@ class Scripts {
     * @return void
     **/
     public function enqueue_scripts() {
-        # code...
+        wp_enqueue_script( 'wpdl-admin-script' );
+        // $translation_array = array( 'some_string' => __( 'Some string to translate', 'wpdl' ), 'a_value' => '10' );
+        // wp_localize_script( 'base-plugin-scripts', 'wpdl', $translation_array ) );
+
     }
 
     /**
@@ -102,7 +131,7 @@ class Scripts {
     * @return void
     **/
     public function enqueue_styles() {
-
+        wp_enqueue_style( 'wpdl-admin-styles' );
     }
 
 }
