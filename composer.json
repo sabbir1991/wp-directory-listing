@@ -1,0 +1,23 @@
+{
+    "name": "wp-directory-listing",
+    "description": "An ultimate business directory WordPress plugin for managing all kind of listings",
+    "keywords": ["wordpress", "directory", "listing", "business", "business-directory", "directory-listing"],
+    "homepage": "http://web-apps.ninja",
+    "type": "wordpress-plugin",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Sabbir Ahmed",
+            "email": "sabbir.081070@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+    },
+
+    "autoload" : {
+        "psr-4" : {
+            "WebApps\\WPDL\\": "includes/",
+        }
+    }
+}
