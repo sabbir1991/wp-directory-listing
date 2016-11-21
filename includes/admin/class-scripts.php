@@ -1,5 +1,5 @@
 <?php
-namespace WebApps\WPDL;
+namespace WebApps\WPDL\Admin;
 
 /**
 * Class for loaded admin scripts
@@ -49,7 +49,7 @@ class Scripts {
         static $instance = false;
 
         if ( ! $instance ) {
-            $instance = new \WebApps\WPDL\Scripts();
+            $instance = new \WebApps\WPDL\Admin\Scripts();
         }
 
         return $instance;
@@ -120,7 +120,6 @@ class Scripts {
         wp_enqueue_script( 'wpdl-admin-script' );
         // $translation_array = array( 'some_string' => __( 'Some string to translate', 'wpdl' ), 'a_value' => '10' );
         // wp_localize_script( 'base-plugin-scripts', 'wpdl', $translation_array ) );
-
     }
 
     /**

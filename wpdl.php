@@ -148,7 +148,11 @@ class WPDL_Listing {
      * @return void
      */
     public function instantiate() {
-        \WebApps\WPDL\Scripts::init();
+        if ( is_admin() ) {
+            \WebApps\WPDL\Admin\Scripts::init();
+            \WebApps\WPDL\Admin\Admin_Menu::init();
+            \WebApps\WPDL\Admin\Settings::init();
+        }
     }
 
 } // WPDL_Listing
