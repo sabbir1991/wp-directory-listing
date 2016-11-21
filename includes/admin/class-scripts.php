@@ -38,7 +38,7 @@ class Scripts {
     /**
      * Initializes the Scripts() class
      *
-     *
+     * @since 0.0.1
      *
      * Checks for an existing Scripts() instance
      * and if it doesn't find one, creates it.
