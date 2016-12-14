@@ -50,7 +50,7 @@ class Admin_Menu {
 
         add_menu_page( __( 'WP Directory', WPDL_LISTING_TEXTDOMAIN ), __( 'WP Directory', WPDL_LISTING_TEXTDOMAIN ), 'manage_options', 'wp-directory-listing', array( $this, 'directory' ), 'dashicons-feedback', $position );
 
-        // add_submenu_page( 'erp-company', __( 'Company', WPDL_LISTING_TEXTDOMAIN ), __( 'Company', WPDL_LISTING_TEXTDOMAIN ), 'manage_options', 'erp-company', array( $this, 'company_page' ) );
+        add_submenu_page( 'wp-directory-listing', __( 'Forms', WPDL_LISTING_TEXTDOMAIN ), __( 'Forms', WPDL_LISTING_TEXTDOMAIN ), 'manage_options', 'wp-directory-listing-forms', array( $this, 'form_page' ) );
         // add_submenu_page( 'erp-company', __( 'Tools', WPDL_LISTING_TEXTDOMAIN ), __( 'Tools', WPDL_LISTING_TEXTDOMAIN ), 'manage_options', 'erp-tools', array( $this, 'tools_page' ) );
         do_action( 'wpdl_load_menu', $position );
     }
@@ -64,6 +64,27 @@ class Admin_Menu {
     **/
     public function directory() {
         echo 'Hello Directory main page';
+    }
+
+    /**
+    * Forms page callback
+    *
+    * @since 1.0.0
+    *
+    * @return void
+    **/
+    public function form_page() {
+        $sections = !empty( $_GET['section'] ) ? $_GET['section'] : '';
+
+        switch ( $sections ) {
+            case 'form-builder':
+                include WPDL_LISTING_VIEWS . '/forms/builder.php';
+                break;
+
+            default:
+                include WPDL_LISTING_VIEWS . '/forms/listing.php';
+                break;
+        }
     }
 
     /**

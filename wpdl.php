@@ -127,6 +127,7 @@ class WPDL_Listing {
         define( 'WPDL_LISTING_INCLUDES', WPDL_LISTING_PATH . '/includes' );
         define( 'WPDL_LISTING_URL', plugins_url( '', WPDL_LISTING_FILE ) );
         define( 'WPDL_LISTING_ASSETS', WPDL_LISTING_URL . '/assets' );
+        define( 'WPDL_LISTING_VIEWS', WPDL_LISTING_PATH . '/views' );
     }
 
     /**
