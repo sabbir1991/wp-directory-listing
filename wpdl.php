@@ -152,6 +152,7 @@ class WPDL_Listing {
             \WebApps\WPDL\Admin\Scripts::init();
             \WebApps\WPDL\Admin\Admin_Menu::init();
             \WebApps\WPDL\Admin\Settings::init();
+            \WebApps\WPDL\Admin\Post_Type::init();
         }
     }
 

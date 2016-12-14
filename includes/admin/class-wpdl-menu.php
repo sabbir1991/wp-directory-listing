@@ -41,7 +41,7 @@ class Admin_Menu {
     /**
     * Register all menu
     *
-    * @since 0.0.1
+    * @since 1.0.0
     *
     * @return void
     **/
